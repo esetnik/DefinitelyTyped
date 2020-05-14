@@ -2003,9 +2003,9 @@ declare module "mongoose" {
       callback?: (err: any, res: DocType | null) => void): DocumentQuery<DocType | null, DocType, QueryHelpers> & QueryHelpers;
     findOne(criteria: FilterQuery<DocType>, projection: any,
       callback?: (err: any, res: T | null) => void): DocumentQuery<DocType | null, DocType, QueryHelpers> & QueryHelpers;
-    findOne(criteria: FilterQuery<DocType>, projection: any, options: { lean: true } & Omit<QueryFindBaseOptions, 'lean'>,
+    findOne(criteria: FilterQuery<DocType>, projection: any, options: { lean: true } & Omit<QueryFindOptions, 'lean'>,
       callback?: (err: any, res: T | null) => void): Query<DocumentDefinition<DocType>> & QueryHelpers;
-    findOne(criteria: FilterQuery<DocType>, projection: any, options: QueryFindBaseOptions,
+    findOne(criteria: FilterQuery<DocType>, projection: any, options: QueryFindOptions,
       callback?: (err: any, res: T | null) => void): DocumentQuery<DocType | null, DocType, QueryHelpers> & QueryHelpers;
 
     /**

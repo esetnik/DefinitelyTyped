@@ -305,6 +305,17 @@ locationQuery.findOne({ name: 'foo', rating: 10 }).then(location => {
         location.save();
     }
 });
+locationQuery.findOne({ name: 'foo', rating: 10 }, {}, {sort: {rating: -1}}).then(location => {
+    if (location) {
+        // $ExpectType ObjectId
+        location._id;
+        // $ExpectType string
+        location.name;
+        // $ExpectError
+        location.unknown;
+        location.save();
+    }
+});
 locationQuery.findOne({ name: 'foo' }, 'name', { lean: true }).then(location => {
     if (location) {
         // $ExpectType ObjectId
